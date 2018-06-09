@@ -54,6 +54,10 @@ open class ActivityNaviEmitter : AndroidNaviEmitter() {
         emitEvent(DetachedFromWindow)
     }
 
+    fun onBackPressed() {
+        emitEvent(BackPressed)
+    }
+
     fun onNewIntent(intent: Intent) {
         emitEvent(NewIntent(intent))
     }
@@ -66,6 +70,7 @@ open class ActivityNaviEmitter : AndroidNaviEmitter() {
             RestoreInstanceState::class,
             AttachedToWindow::class,
             DetachedFromWindow::class,
+            BackPressed::class,
             NewIntent::class
         )
     }
