@@ -61,10 +61,12 @@ open class ActivityNaviEmitter : AndroidNaviEmitter() {
     companion object {
         val EVENTS = setOf(
             PostCreate::class,
+            Restart::class,
             PostResume::class,
             RestoreInstanceState::class,
             AttachedToWindow::class,
-            DetachedFromWindow::class
+            DetachedFromWindow::class,
+            NewIntent::class
         )
     }
 }
