@@ -86,6 +86,11 @@ open class NaviActivity : Activity(), NaviComponent {
         super.onDestroy()
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        emitter.onBackPressed()
+    }
+
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         emitter.onNewIntent(intent)

@@ -71,6 +71,7 @@ object Restart
 object AttachedToWindow
 object DetachedFromWindow
 object PostResume
+object BackPressed
 data class NewIntent(val intent: Intent)
 data class RestoreInstanceState(val savedInstanceState: Bundle?)
 
