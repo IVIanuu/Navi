@@ -36,8 +36,9 @@ open class NaviEmitter(events: Collection<KClass<*>> = emptyList()) : NaviCompon
 
     override fun <T : Any> addListener(eventClass: KClass<T>, listener: Listener<T>) {
         val entry = ListenerEntry(eventClass, listener)
-        // todo check duplicates
-        listeners.add(entry)
+        if (!listeners.contains(entry)) {
+            listeners.add(entry)
+        }
     }
 
     override fun removeListener(listener: Listener<*>) {
@@ -59,7 +60,7 @@ open class NaviEmitter(events: Collection<KClass<*>> = emptyList()) : NaviCompon
         handledEvents.addAll(events)
     }
 
-    private class ListenerEntry<T : Any>(
+    private data class ListenerEntry<T : Any>(
         val eventClass: KClass<T>,
         val listener: Listener<T>
     ) {
